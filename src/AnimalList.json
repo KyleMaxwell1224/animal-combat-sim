@@ -1,0 +1,20 @@
+[
+    {
+        "animalName": "Great White Shark",
+        "pictureLink": "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
+    },
+    {
+        "animalName": "Tiger",
+        "pictureLink": "https://static01.nyt.com/images/2019/05/07/science/06SCI-TIGER1/03SCI-TIGER1-superJumbo.jpg" 
+    },    
+    {
+        "animalName": "Alligator",
+        "pictureLink": "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=%5B1060%2C585%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F24%2F2021%2F05%2F21%2FGettyImages-496836209-2000.jpg"
+    },
+    {
+        "animalName": "Pomeranian Dog",
+        "pictureLink": "https://elements-video-cover-images-0.imgix.net/files/c384f521-89e6-4e92-b8b1-57dad5ad77f4/inline_image_preview.jpg?auto=compress&crop=edges&fit=crop&fm=jpeg&h=800&w=1200&s=3fe58aa1eb96189bbb5aab44fd48a11b" 
+    }
+]
+
+

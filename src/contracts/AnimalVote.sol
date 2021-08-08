@@ -38,7 +38,7 @@ contract AnimalVote {
     mapping(uint => Matchup) public matchups;
 
     // Constructor function
-    constructor () public {
+    constructor () {
         name = "The Fight That Matters";
     }
 

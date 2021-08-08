@@ -10,7 +10,7 @@ const GenerateMatchup = {
     },
     // Function to generate random number from 1-5 (inclusive)
     generateNumberOfAnimals() {
-        return Math.random() * (max - min) + min;
+        return Math.floor(Math.random() * (max - min) + min);
     },
     generateAnimal() {
         var index = Math.floor(Math.random() * animalData.length)

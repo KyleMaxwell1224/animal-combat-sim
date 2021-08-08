@@ -6,7 +6,7 @@ class Navbar extends Component {
 
     render() {
         return (
-          <Container id = "navbar" maxWidth = "false">
+          <Container id = "navbar" maxWidth = {false}>
             <a
               href="http://www.dappuniversity.com/bootcamp"
               target="_blank"

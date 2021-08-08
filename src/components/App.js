@@ -32,16 +32,17 @@ class App extends Component {
     if(networkData) {
       const animalVote = web3.eth.Contract(AnimalVote.abi, networkData.address)
       this.setState({ animalVote })
-      const postCount = await animalVote.methods.voteCount().call()
-      this.setState({ postCount })
+      const voteCount = await animalVote.methods.voteCount().call()
+      this.setState({ voteCount })
       // Load Posts
-      for (var i = 1; i <= postCount; i++) {
+      for (var i = 1; i <= voteCount; i++) {
         const votes = await animalVote.methods.votes(i).call()
         this.setState({
-          votes: [...this.state.votes, votes]
+          votes: [this.state.votes, votes]
         })
       }
       this.setState({ loading: false})
+      console.log("VOTE COUNT IS " + this.state.voteCount)
 
     } else {
       window.alert('AnimalVote contract not deployed to detected network.')
@@ -66,9 +67,10 @@ class App extends Component {
     this.placeVote = this.placeVote.bind(this)
   }
   
-  placeVote(winningAnimal) {
+  placeVote(winningAnimal, animalCount) {
+    console.log("PLACING VOTE " + animalCount)
     this.setState({ loading: true })
-    this.state.animalVote.methods.placeVote(winningAnimal, this.state.matchup).send({ from: this.state.account })
+    this.state.animalVote.methods.placeVote(winningAnimal, animalCount).send({ from: this.state.account })
     .once('receipt', (receipt) => {
       this.setState({ loading: false })
     })
@@ -77,13 +79,12 @@ class App extends Component {
 
   render() {
     return (
-      <Container style={{padding:0}}  maxWidth = "false">
+      <Container style={{padding:0}}  maxWidth = {false}>
         <Navbar account={this.state.account} />
         { this.state.loading
           ? <div id="loader"><p>Loading...</p></div>
           : <Main
-              posts={this.state.posts}
-              createPost={this.createPost}
+              placeVote={this.placeVote}
             />
         }
       </Container>

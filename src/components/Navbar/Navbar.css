@@ -1,5 +1,11 @@
 #navbar {
     display: inline-flex;
-    background-color: black;
+    background-color: #383737;
     padding: 0;
+}
+
+.navText {
+    color: yellow;
+    padding: 0;
+    margin: 1rem;
 }

@@ -8,6 +8,7 @@ import { Button } from '@material-ui/core';
 class Main extends Component {
   constructor(props) {
     super(props);
+    console.log("ANIMAL VOTES IS : " +props.votes);
     this.state = {
       account: '',
       votes: null,
@@ -21,15 +22,20 @@ class Main extends Component {
       loading: true
     }
     this.refreshMatchup = this.refreshMatchup.bind(this);
-
+    this.getVoteCount = this.getVoteCount.bind(this);
   }
   
+  getVoteCount(num){
+    this.setState({voteCount: parseInt(num) })
+    console.log("STATE SET TO + "+num)
+  }
+
   setMatchupStates(myMatchup) {
     this.setState({ 
       animalOneName: myMatchup.animOne.animalName,
       animalTwoName: myMatchup.animTwo.animalName,
-      animalOneCount: GenerateMatchup.generateNumberOfAnimals(),
-      animalTwoCount: GenerateMatchup.generateNumberOfAnimals(),
+      animalOneCount: myMatchup.animOne.animalCount,
+      animalTwoCount: myMatchup.animTwo.animalCount,
       animalOnePictureLink: myMatchup.animOne.pictureLink,
       animalTwoPictureLink: myMatchup.animTwo.pictureLink
     });
@@ -45,16 +51,22 @@ class Main extends Component {
     this.setMatchupStates(myMatchup);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(parseInt(prevProps.votes) !== parseInt(this.state.voteCount)){
+      this.getVoteCount(prevProps.votes);
+    }
+  }
   render() {
     return (
       <Container style = {{textAlign: "center"}} maxWidth = {false}>
         <h1>Ultimate Animal Matchup</h1>
         <h2>Don't like the matchup?</h2>
-        <Button variant="contained" color = "primary" onClick = {this.refreshMatchup} >Refresh Matchup</Button>
+        <Button variant="contained" style = {{margin: "1.5rem", padding: "1rem"}} color = "primary" onClick = {this.refreshMatchup} >Refresh Matchup</Button>
+        <h3>Number of votes placed so far: {this.state.voteCount}</h3>
         <Container style = {{display: "inline-flex"}} maxWidth = {false}>
           <AnimalBox placeVote = {this.props.placeVote} animalName = {this.state.animalOneName} animalCount = {this.state.animalOneCount} pictureLink = {this.state.animalOnePictureLink} />
           <h3>vs.</h3>
-          <AnimalBox placeVote = {this.props.placeVote} animalName = {this.state.animalTwoName} animalCount = {this.state.animalOneCount} pictureLink = {this.state.animalTwoPictureLink} />
+          <AnimalBox placeVote = {this.props.placeVote} animalName = {this.state.animalTwoName} animalCount = {this.state.animalTwoCount} pictureLink = {this.state.animalTwoPictureLink} />
         </Container>
       </Container>
     );

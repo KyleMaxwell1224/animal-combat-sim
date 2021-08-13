@@ -16,7 +16,7 @@ class AnimalBox extends React.Component {
 render () {
     return (
         <Container className = "animalBox">
-            <h1>{this.props.animalName}</h1>
+            <h1>{this.props.animalCount} {this.props.animalName}s</h1>
             <img className = "animalImg" src= {this.props.pictureLink} alt = {this.props.animalName} /> 
             <br/>
             <Button onClick = {() => this.placeVote()} color = "primary" variant = "contained">Vote {this.props.animalName}!</Button>

@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 
-pragma experimental ABIEncoderV2;
+pragma solidity ^0.5.0;
 
 contract Migrations {
   address public owner;
   uint public last_completed_migration;
 
-  constructor() {
+  constructor() public {
     owner = msg.sender;
   }
 

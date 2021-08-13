@@ -22,6 +22,16 @@
         "animalCount": 0,
         "pictureLink": "https://elements-video-cover-images-0.imgix.net/files/c384f521-89e6-4e92-b8b1-57dad5ad77f4/inline_image_preview.jpg?auto=compress&crop=edges&fit=crop&fm=jpeg&h=800&w=1200&s=3fe58aa1eb96189bbb5aab44fd48a11b",
         "fragility": "HIGH" 
+    },
+    {
+        "animalName": "Harambe",
+        "pictureLink": "https://ichef.bbci.co.uk/news/976/cpsprodpb/14C52/production/_92847058_c3c1256f-1f69-45fe-ade5-a1822e3d9b9c.jpg",
+        "fragility": "LOW"
+    },
+    {
+        "animalName": "Ostrich",
+        "pictureLink": "https://d3mvlb3hz2g78.cloudfront.net/wp-content/uploads/2015/03/thumb_720_450_1425_f.jpg",
+        "fragility": "MEDIUM"
     }
 ]
 

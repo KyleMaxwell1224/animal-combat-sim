@@ -1,8 +1,8 @@
 import animalData from "../AnimalList.json";
-
+import FragilityMaxsAndMins from '../Enums.js';
 //DEFAULTS FOR LOW FRAGILITY
-var max = 5;
-var min = 2;
+var max = FragilityMaxsAndMins.maxLowFragility;
+var min = FragilityMaxsAndMins.minLowFragility;
 
 //
 const GenerateMatchup = {
@@ -14,16 +14,16 @@ const GenerateMatchup = {
         switch(animal.fragility) {
             //TODO: THESE VALUES ARE HARDCODED. ADD TO ENUMS FILE
             case "LOW":
-                max = 5;
-                min = 2;
+                max = FragilityMaxsAndMins.maxLowFragility;
+                min = FragilityMaxsAndMins.minLowFragility;
                 break;
             case "MEDIUM":
-                max = 24;
-                min = 12;
+                max = FragilityMaxsAndMins.maxMediumFragility;
+                min = FragilityMaxsAndMins.minMediumFragility;
                 break;
             case "HIGH":
-                min = 50;
-                max = 100;
+                min = FragilityMaxsAndMins.minHighFragility;
+                max = FragilityMaxsAndMins.maxHighFragility;
                 return;
             default:
                 return;
@@ -31,9 +31,7 @@ const GenerateMatchup = {
     },
     // Function to generate random number from 1numOfAnimals-5 (inclusive)
     generateNumberOfAnimals(animal) {
-        console.log("SETTING MAX AND MIN")
         this.setMaxAndMinOnFragility(animal)
-        console.log("max set to " + max)
         return Math.floor(Math.random() * (max - min) + min);
     },
     generateAnimal() {
@@ -46,8 +44,6 @@ const GenerateMatchup = {
         var animOne = this.generateAnimal();
         var animTwo = this.generateAnimal();
         var arr = { animOne, animTwo };
-        console.log("BOUTTA return " + arr.animOne.animalName + " WITH A COUNT OF " + arr.animOne.animalCount)
-        console.log("BOUTTA return " + arr.animTwo.animalName+ " WITH A COUNT OF " + arr.animTwo.animalCount)
         return arr;
     }
 };

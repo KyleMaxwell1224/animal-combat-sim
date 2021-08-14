@@ -40,8 +40,7 @@ class App extends Component {
       this.setState({ animalVote })
       const voteCount = await animalVote.methods.voteCount().call();
       this.setState({ voteCount })
-
-      // Load Posts
+      // Load votes
       for (var i = 1; i <= voteCount; i++) {
         const votes = await animalVote.methods.votes(i).call()
         this.setState({
@@ -49,8 +48,6 @@ class App extends Component {
         })
       }
       this.setState({ loading: false})
-      console.log("VOTE COUNT IS " + this.state.voteCount)
-
     } else {
       window.alert('AnimalVote contract not deployed to detected network.')
     }
@@ -107,8 +104,7 @@ class App extends Component {
               <VoteComplete />
             </Route>
         </Router>
-
-        
+       
       </Container>
     );
   }

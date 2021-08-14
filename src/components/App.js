@@ -10,6 +10,7 @@ import Container from '@material-ui/core/Container';
 import {
   BrowserRouter as Router, Route
 } from "react-router-dom";
+import ErrorView from './ErrorView/ErrorView';
 
 
 class App extends Component {
@@ -68,6 +69,7 @@ class App extends Component {
       voteCount: 0,
       estGas: 0.0,
       matchup: null,
+      error: null,
       loading: true
     }
     this.placeVote = this.placeVote.bind(this);
@@ -76,23 +78,29 @@ class App extends Component {
   placeVote(winningAnimal, animalCount) {
     console.log("PLACING VOTE " + animalCount)
     this.setState({ loading: true });
-    this.state.animalVote.methods.placeVote(winningAnimal, animalCount).send({ from: this.state.account }, function (err, res) {
-      if (err) {
-        console.log("An error occured during transaction", err)
-        return
-      }
-      console.log("TIME TO JET")
-      
+    try{
+      this.state.animalVote.methods.placeVote(winningAnimal, animalCount).send({ from: this.state.account }, function (err, res) {
+        if (err) {
+          console.log("An error occured during transaction", err)
+          return
+        }
+        console.log("TIME TO JET")
+        
+      });
+    } catch(error){
+      this.setState({ error });
     }
-  )
+  
   };
 
 
   render() {
+    if(this.state.error) {
+      return <ErrorView />
+    }
     return (
       <Container style={{padding:0}}  maxWidth = {false}>
         <Navbar account={this.state.account} />
-
         <Router>
             <Route exact path="/">
             <Main

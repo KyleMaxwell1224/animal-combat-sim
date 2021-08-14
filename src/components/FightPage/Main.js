@@ -56,6 +56,10 @@ class Main extends Component {
       this.getVoteCount(prevProps.votes);
     }
   }
+  componentDidCatch(error, errorInfo) {
+    console.log("ERROR! "+ errorInfo);
+  } 
+
   render() {
     return (
       <Container style = {{textAlign: "center"}} maxWidth = {false}>

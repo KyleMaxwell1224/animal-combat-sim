@@ -13,6 +13,8 @@ class AnimalBox extends React.Component {
             this.setState({ loading: false })
     }) */
 };
+
+
 render () {
     return (
         <Container className = "animalBox">

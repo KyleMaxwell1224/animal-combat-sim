@@ -2,6 +2,10 @@
   "name": "combat-simulator",
   "homepage": "http://kylemaxwell1224.github.io/combat-simulator",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x",
+    "npm": "7.x"
+  },
   "description": "A place to vote on animal-combat hypotheticals.",
   "author": "kyleman1224@gmail.com",
   "dependencies": {
@@ -44,6 +48,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "node-pre-gyp": "0.12.0"
   }
 }

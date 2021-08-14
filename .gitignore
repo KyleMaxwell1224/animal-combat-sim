@@ -24,6 +24,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-src/abis
+src/abis/SocialNetwork.json
+src/abis/Migrations.json
 test/SocialNetwork.test.js
 src/contracts/SocialNetwork.sol

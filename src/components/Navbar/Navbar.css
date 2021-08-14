@@ -1,7 +1,7 @@
 #navbar {
-    display: inline-flex;
     background-color: #383737;
     padding: 0;
+    margin-bottom: 1.5rem;
 }
 
 .navText {
@@ -9,4 +9,13 @@
     padding: 0;
     margin: 1rem;
     font-size: 1.5rem;
+}
+
+.navLink {
+    background-color: #bdbdbd;
+    padding: 1rem;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
 }

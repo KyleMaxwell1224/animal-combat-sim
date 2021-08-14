@@ -11,6 +11,7 @@ import {
   BrowserRouter as Router, Route
 } from "react-router-dom";
 import ErrorView from './ErrorView/ErrorView';
+import ChainInfoView from './ChainInfoView/ChainInfoView';
 
 
 class App extends Component {
@@ -29,13 +30,15 @@ class App extends Component {
 
   
   async loadBlockchainData() {
-    const web3 = window.web3
+    const web3 = window.web3;
     // Load account
-    const accounts = await web3.eth.getAccounts()
-    this.setState({ account: accounts[0] })
+    const accounts = await web3.eth.getAccounts();
+    this.setState({ account: accounts[0] });
     // Network ID
-    const networkId = await web3.eth.net.getId()
-    const networkData = AnimalVote.networks[networkId]
+    const networkId = await web3.eth.net.getId();
+    const networkData = AnimalVote.networks[networkId];
+    const networkName = await web3.eth.net.getNetworkType();
+    this.setState({ networkName });
     if(networkData) {
       const animalVote = web3.eth.Contract(AnimalVote.abi, networkData.address)
       this.setState({ animalVote })
@@ -70,6 +73,7 @@ class App extends Component {
       estGas: 0.0,
       matchup: null,
       error: null,
+      networkName: "Undetected",
       loading: true
     }
     this.placeVote = this.placeVote.bind(this);
@@ -110,6 +114,11 @@ class App extends Component {
             </Route>
             <Route path="/complete">
               <VoteComplete />
+            </Route>
+            <Route path="/info">
+              <ChainInfoView 
+                networkName={this.state.networkName}
+              />
             </Route>
         </Router>
        

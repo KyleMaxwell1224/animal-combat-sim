@@ -1,6 +1,5 @@
 {
   "name": "combat-simulator",
-  "homepage": "http://kylemaxwell1224.github.io/combat-simulator",
   "version": "1.0.0",
   "engines": {
     "node": "14.x",
@@ -48,7 +47,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.2.0",
     "node-pre-gyp": "0.12.0"
   }
 }

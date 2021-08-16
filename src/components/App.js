@@ -8,15 +8,14 @@ import VoteComplete from './VoteComplete/VoteComplete';
 import '@fontsource/roboto';
 import Container from '@material-ui/core/Container';
 import {
-  BrowserRouter as Router, Route
+  Router, Route
 } from "react-router-dom";
 import ErrorView from './ErrorView/ErrorView';
 import ChainInfoView from './ChainInfoView/ChainInfoView';
+import History from '../helpers/History';
 
 
 class App extends Component {
-
-
   async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
@@ -27,7 +26,6 @@ class App extends Component {
       window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
     }
   }
-
   
   async loadBlockchainData() {
     const web3 = window.web3;
@@ -53,7 +51,7 @@ class App extends Component {
       }
       this.setState({ loading: false})
     } else {
-      window.alert('AnimalVote contract not deployed to detected network.')
+      window.alert('This contract is not deployed to detected network. Please change networks.')
     }
   }
 
@@ -88,7 +86,7 @@ class App extends Component {
           console.log("An error occured during transaction", err)
           return
         }
-        console.log("TIME TO JET")
+        History.push('/complete', {transactionId: res});
         
       });
     } catch(error){
@@ -105,7 +103,7 @@ class App extends Component {
     return (
       <Container style={{padding:0}}  maxWidth = {false}>
         <Navbar account={this.state.account} />
-        <Router>
+        <Router history = {History}>
             <Route exact path="/">
             <Main
               placeVote={this.placeVote}
@@ -113,7 +111,9 @@ class App extends Component {
               />
             </Route>
             <Route path="/complete">
-              <VoteComplete />
+              <VoteComplete 
+                networkName={this.state.networkName}
+              />
             </Route>
             <Route path="/info">
               <ChainInfoView 

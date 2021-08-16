@@ -8,7 +8,6 @@ import { Button } from '@material-ui/core';
 class Main extends Component {
   constructor(props) {
     super(props);
-    console.log("ANIMAL VOTES IS : " +props.votes);
     this.state = {
       account: '',
       votes: null,
@@ -56,9 +55,6 @@ class Main extends Component {
       this.getVoteCount(prevProps.votes);
     }
   }
-  componentDidCatch(error, errorInfo) {
-    console.log("ERROR! "+ errorInfo);
-  } 
 
   render() {
     return (

@@ -38,7 +38,7 @@ class App extends Component {
     const networkName = await web3.eth.net.getNetworkType();
     this.setState({ networkName });
     if(networkData) {
-      const animalVote = web3.eth.Contract(AnimalVote.abi, networkData.address)
+      const animalVote = new web3.eth.Contract(AnimalVote.abi, networkData.address)
       this.setState({ animalVote })
       const voteCount = await animalVote.methods.voteCount().call();
       this.setState({ voteCount })

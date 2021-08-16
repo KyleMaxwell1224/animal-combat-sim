@@ -1,4 +1,4 @@
-const AnimalVote = artifacts.require('./AnimalVote.sol')
+const AnimalVote = artifacts.require('../src/contracts/AnimalVote.sol');
 
 require('chai')
   .use(require('chai-as-promised'))
@@ -38,7 +38,7 @@ require('chai')
     let result, voteCount
 
     before(async () => {
-      result = await animalVote.placeVote('Shark', fakeMatchup)
+      result = await animalVote.placeVote('Shark', 2)
       voteCount = await animalVote.voteCount()
     })
 

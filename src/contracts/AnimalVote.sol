@@ -24,7 +24,7 @@ contract AnimalVote {
     mapping(uint => Vote) public votes;
 
     // Constructor function
-    constructor () {
+    constructor () public {
         name = "The Fight That Matters";
     }
 

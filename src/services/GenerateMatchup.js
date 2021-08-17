@@ -22,16 +22,16 @@ const GenerateMatchup = {
                 min = FragilityMaxsAndMins.minMediumFragility;
                 break;
             case "HIGH":
-                min = FragilityMaxsAndMins.minHighFragility;
                 max = FragilityMaxsAndMins.maxHighFragility;
+                min = FragilityMaxsAndMins.minHighFragility;
                 return;
             default:
                 return;
         }
     },
-    // Function to generate random number from 1numOfAnimals-5 (inclusive)
+    // Function to generate random number from min numOfAnimals thru max (inclusive)
     generateNumberOfAnimals(animal) {
-        this.setMaxAndMinOnFragility(animal)
+        this.setMaxAndMinOnFragility(animal);
         return Math.floor(Math.random() * (max - min) + min);
     },
     generateAnimal() {

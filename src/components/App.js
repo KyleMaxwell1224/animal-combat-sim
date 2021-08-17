@@ -40,6 +40,13 @@ class App extends Component {
     if(networkData) {
       const animalVote = new web3.eth.Contract(AnimalVote.abi, networkData.address)
       this.setState({ animalVote })
+      var eventVotes = await animalVote.getPastEvents("VotePlaced", {
+        fromBlock: 0,
+        toBlock: 'latest'
+      });
+
+      this.setState({ pastVotes: eventVotes });
+      
       const voteCount = await animalVote.methods.voteCount().call();
       this.setState({ voteCount })
       // Load votes
@@ -62,13 +69,13 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       account: '',
       votes: null,
       animalVote: null,
       voteCount: 0,
-      estGas: 0.0,
+      pastVotes: [],
       matchup: null,
       error: null,
       networkName: "Undetected",
@@ -78,7 +85,7 @@ class App extends Component {
   }
   
   placeVote(winningAnimal, animalCount) {
-    console.log("PLACING VOTE " + animalCount)
+    console.log(this.state.pastVotes)
     this.setState({ loading: true });
     try{
       this.state.animalVote.methods.placeVote(winningAnimal, animalCount).send({ from: this.state.account }, function (err, res) {
@@ -118,6 +125,7 @@ class App extends Component {
             <Route path="/info">
               <ChainInfoView 
                 networkName={this.state.networkName}
+                pastVotes={this.state.pastVotes}
               />
             </Route>
         </Router>

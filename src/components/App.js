@@ -108,7 +108,7 @@ class App extends Component {
       return <ErrorView />
     }
     return (
-      <Container style={{padding:0}}  maxWidth = {false}>
+      <Container style={{padding:0}} maxWidth = {false}>
         <Navbar account={this.state.account} />
         <Router history = {History}>
             <Route exact path="/">

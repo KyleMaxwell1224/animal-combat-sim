@@ -2,3 +2,13 @@
     display: inline-flex;
     text-align: center;
 }
+
+#main-container {
+    text-align: center; 
+    background-color: rgba(53, 53, 53, 0.2);
+    border-top: 3px;
+    border-top-style: solid;
+    border-bottom: 3px;
+    border-bottom-style: solid;
+    border-color: black;
+}

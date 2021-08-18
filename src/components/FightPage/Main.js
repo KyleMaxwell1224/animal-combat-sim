@@ -58,10 +58,10 @@ class Main extends Component {
 
   render() {
     return (
-      <Container style = {{textAlign: "center"}} maxWidth = {false}>
-        <h1>Ultimate Animal Matchup</h1>
+      <Container id = "main-container" maxWidth = {false}>
+        <h1 style = {{ marginTop: "1rem"}}>Ultimate Animal Matchup</h1>
         <h2>Don't like the matchup?</h2>
-        <Button variant="contained" style = {{margin: "1.5rem", padding: "1rem"}} color = "primary" onClick = {this.refreshMatchup} >Refresh Matchup</Button>
+        <Button variant="contained" style = {{margin: "2rem", padding: "1rem"}} color = "primary" onClick = {this.refreshMatchup} >Refresh Matchup</Button>
         <h3>Number of votes placed so far: {this.state.voteCount}</h3>
         <Container style = {{display: "inline-flex"}} maxWidth = {false}>
           <AnimalBox placeVote = {this.props.placeVote} animalName = {this.state.animalOneName} animalCount = {this.state.animalOneCount} pictureLink = {this.state.animalOnePictureLink} />

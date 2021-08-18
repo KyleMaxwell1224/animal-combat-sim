@@ -17,6 +17,11 @@ class ChainInfoView extends Component {
         this.countAnimalVictories = this.countAnimalVictories.bind(this);
     }
 
+    sortMap(oldMap) {
+        const sortedMap = new Map([...oldMap.entries()].sort((a, b) => b[1] - a[1]));
+        return sortedMap;
+    }
+
     countAnimalVictories(pastVotes) {
         const animalMap = new Map();
         for(let animal in pastVotes){
@@ -34,6 +39,7 @@ class ChainInfoView extends Component {
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.pastVotes !== this.state.pastVotes){
             var animalMap = this.countAnimalVictories(prevProps.pastVotes);
+            animalMap = this.sortMap(animalMap);
             var topAnimal = [...animalMap.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
             var foundAnimal = animalData.find(animal => animal.animalName === topAnimal[0]);
             this.setState({ topAnimalPic: foundAnimal.pictureLink});

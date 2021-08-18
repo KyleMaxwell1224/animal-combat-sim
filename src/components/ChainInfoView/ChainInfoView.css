@@ -1,7 +1,8 @@
 #info-box {
     background-color: rgba(53, 53, 53, 0.2);
+    border-top: 3px;
+    border-top-style: solid;
+    border-bottom: 3px;
+    border-bottom-style: solid;
     border-color: black;
-    border-style: solid;
-    margin: 1rem;
-    margin-right: 0;
 }

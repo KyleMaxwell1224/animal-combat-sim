@@ -28,6 +28,11 @@
         "animalName": "Ostrich",
         "pictureLink": "https://d3mvlb3hz2g78.cloudfront.net/wp-content/uploads/2015/03/thumb_720_450_1425_f.jpg",
         "fragility": "MEDIUM"
+    },
+    {
+        "animalName": "Mini Penguin",
+        "pictureLink": "https://i.pinimg.com/originals/37/97/5c/37975ce36ba6d61be86460b84c21194c.jpg",
+        "fragility": "HIGH"
     }
 ]
 

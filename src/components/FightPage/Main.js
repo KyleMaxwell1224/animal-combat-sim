@@ -60,13 +60,23 @@ class Main extends Component {
     return (
       <Container id = "main-container" maxWidth = {false}>
         <h1 style = {{marginTop: '1rem'}}>Ultimate Animal Matchup</h1>
-        <h2>Don't like the matchup?</h2>
-        <Button variant="contained" style = {{margin: '2rem', padding: '1rem'}} color = "primary" onClick = {this.refreshMatchup} >Refresh Matchup</Button>
+        <h2>Don&apos;t like the matchup?</h2>
+        <Button
+          variant="contained"
+          style = {{margin: '2rem', padding: '1rem'}}
+          color = "primary"
+          onClick = {this.refreshMatchup} >Refresh Matchup</Button>
         <h3>Number of votes placed so far: {this.state.voteCount}</h3>
         <Container style = {{display: 'inline-flex'}} maxWidth = {false}>
-          <AnimalBox placeVote = {this.props.placeVote} animalName = {this.state.animalOneName} animalCount = {this.state.animalOneCount} pictureLink = {this.state.animalOnePictureLink} />
+          <AnimalBox placeVote = {this.props.placeVote}
+            animalName = {this.state.animalOneName}
+            animalCount = {this.state.animalOneCount}
+            pictureLink = {this.state.animalOnePictureLink} />
           <h3>vs.</h3>
-          <AnimalBox placeVote = {this.props.placeVote} animalName = {this.state.animalTwoName} animalCount = {this.state.animalTwoCount} pictureLink = {this.state.animalTwoPictureLink} />
+          <AnimalBox placeVote = {this.props.placeVote}
+            animalName = {this.state.animalTwoName}
+            animalCount = {this.state.animalTwoCount}
+            pictureLink = {this.state.animalTwoPictureLink} />
         </Container>
       </Container>
     );

@@ -11,9 +11,12 @@ class ErrorView extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <Container maxWidth = "false" style = {{textAlign: 'center', padding: '0px'}}>
+        <Container
+          maxWidth = "false"
+          style = {{textAlign: 'center', padding: '0px'}}>
           <Navbar />
-          <h1>Uh-oh, that wasn't supposed to happen. Want to return to the main page?</h1>
+          <h1>Uh-oh, that wasn&apos;t supposed to happen.
+              Want to return to the main page?</h1>
           <Link href = "/">Go Back Now</Link>
         </Container>
       );

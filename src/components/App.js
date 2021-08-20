@@ -21,7 +21,8 @@ class App extends Component {
       window.web3 = new Web3(window.ethereum);
       await window.ethereum.enable();
     } else {
-      window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
+      window.alert('Non-Ethereum browser detected.' +
+        'You should consider trying MetaMask!');
     }
   }
 
@@ -36,7 +37,8 @@ class App extends Component {
     const networkName = await web3.eth.net.getNetworkType();
     this.setState({networkName});
     if (networkData) {
-      const animalVote = new web3.eth.Contract(AnimalVote.abi, networkData.address);
+      const animalVote = new web3.eth.Contract(AnimalVote.abi,
+          networkData.address);
       this.setState({animalVote});
       const eventVotes = await animalVote.getPastEvents('VotePlaced', {
         fromBlock: 0,
@@ -56,11 +58,12 @@ class App extends Component {
       }
       this.setState({loading: false});
     } else {
-      window.alert('This contract is not deployed to detected network. Please change networks.');
+      window.alert('This contract is not deployed' +
+        'to detected network. Please change networks.');
     }
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
   }
@@ -86,13 +89,14 @@ class App extends Component {
     console.log(this.state.pastVotes);
     this.setState({loading: true});
     try {
-      this.state.animalVote.methods.placeVote(winningAnimal, animalCount).send({from: this.state.account}, function(err, res) {
-        if (err) {
-          console.log('An error occured during transaction', err);
-          return;
-        }
-        History.push('/complete', {transactionId: res});
-      });
+      this.state.animalVote.methods.placeVote(winningAnimal, animalCount)
+          .send({from: this.state.account}, function(err, res) {
+            if (err) {
+              console.log('An error occured during transaction', err);
+              return;
+            }
+            History.push('/complete', {transactionId: res});
+          });
     } catch (error) {
       this.setState({error});
     }

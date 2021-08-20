@@ -7,11 +7,22 @@ class Navbar extends Component {
     return (
       <Container id = "navbar" maxWidth = {false} >
         <Container>
-          <h1 className = "navText" style = {{textAlign: 'left', float: 'left'}}>Welcome to the Fantasy Animal Showdown</h1>
-          <h2 className = "navText" style = {{textAlign: 'right', float: 'right'}}>Account ID: {this.props.account ? this.props.account : 'NONE'}</h2>
+          <h1 className = "navText"
+            style = {{textAlign: 'left', float: 'left'}}>
+              Welcome to the Fantasy Animal Showdown</h1>
+          <h2 className = "navText"
+            style = {{textAlign: 'right', float: 'right'}}>
+              Account ID: {this.props.account ? this.props.account : 'NONE'}
+          </h2>
         </Container>
-        <Link className = "navLink" style = {{margin: '1rem'}} href = "/">Home</Link>
-        <Link className = "navLink" style = {{margin: '1rem'}} href = "/info">Chain Info</Link>
+        <Link
+          className = "navLink"
+          style = {{margin: '1rem'}}
+          href = "/">Home</Link>
+        <Link
+          className = "navLink"
+          style = {{margin: '1rem'}}
+          href = "/info">Chain Info</Link>
       </Container>
     );
   }

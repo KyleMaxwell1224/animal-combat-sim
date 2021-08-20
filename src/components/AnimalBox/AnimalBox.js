@@ -2,10 +2,6 @@ import {Button, Container} from '@material-ui/core';
 import React from 'react';
 import './AnimalBox.css';
 
-AnimalBox.propTypes = {
-  name: PropTypes.string.isRequired,
-};
-
 class AnimalBox extends React.Component {
   placeVote() {
     this.props.placeVote(this.props.animalName, this.props.animalCount);

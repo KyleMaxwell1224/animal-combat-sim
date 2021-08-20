@@ -62,7 +62,7 @@ class ChainInfoView extends Component {
       >
         <h1>Currently on {this.props.networkName} network.</h1>
         <h2>The top animal on this chain is a {this.state.topAnimalName}
-            with {this.state.topAnimalVotes} votes!</h2>
+        &nbsp;with {this.state.topAnimalVotes} votes!</h2>
         <Image
           src={this.state.topAnimalPic}
           style={{width: '20rem', borderStyle: 'solid',

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >= 0.6.0;
+pragma solidity >= 0.5.14;
 
 
 contract AnimalVote {
@@ -24,7 +24,7 @@ contract AnimalVote {
     mapping(uint => Vote) public votes;
 
     // Constructor function
-    constructor () {
+    constructor () public {
         name = "The Fight That Matters";
     }
 

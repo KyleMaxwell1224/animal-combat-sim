@@ -8,13 +8,14 @@ class Navbar extends Component {
       <Container id = "navbar" maxWidth = {false} >
         <Container>
           <h1 className = "navText"
-            style = {{textAlign: 'left', float: 'left'}}>
+            style = {{textAlign: 'left', float: 'left', margin: '1 rem'}}>
               Welcome to the Fantasy Animal Showdown</h1>
           <h2 className = "navText"
             style = {{textAlign: 'right', float: 'right'}}>
               Account ID: {this.props.account ? this.props.account : 'NONE'}
           </h2>
-        </Container>
+          </Container>
+          <br/>
         <Link
           className = "navLink"
           style = {{margin: '1rem'}}
@@ -23,7 +24,7 @@ class Navbar extends Component {
           className = "navLink"
           style = {{margin: '1rem'}}
           href = "/info">Chain Info</Link>
-      </Container>
+        </Container>
     );
   }
 }

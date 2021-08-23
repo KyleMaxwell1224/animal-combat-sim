@@ -20,7 +20,7 @@ To access the deployed website, you can view it [deployed on Heroku here](https:
 
 Before accessing the site, make sure you have an Ethereum-wallet extension available in your browser. If you're using Google Chrome, I recommend [installing MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en).
 
-  
+
 
 **Placing a vote on the site is very easy!** Once MetaMask is installed, upon deciding on the winner of a given fight, you can initiate a smart contract transaction.
 

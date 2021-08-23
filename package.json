@@ -1,6 +1,7 @@
 {
   "name": "combat-simulator",
   "version": "2.0.0",
+  "homepage": "https://the-great-animal-combat-sim.herokuapp.com/",
   "engines": {
     "node": "14.x",
     "npm": "7.x"

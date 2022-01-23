@@ -12,7 +12,6 @@ const GenerateMatchup = {
     },
     setMaxAndMinOnFragility(animal) {
         switch(animal.fragility) {
-            //TODO: THESE VALUES ARE HARDCODED. ADD TO ENUMS FILE
             case "LOW":
                 max = FragilityMaxsAndMins.maxLowFragility;
                 min = FragilityMaxsAndMins.minLowFragility;
